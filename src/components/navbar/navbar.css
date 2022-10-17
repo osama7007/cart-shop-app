@@ -1,0 +1,27 @@
+li a:hover{
+  color: darkgreen;
+}
+li a::after{
+  position: absolute;
+  content: "";
+  width:0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: darkgreen;
+  transition: width .5s;
+}
+li a:hover::after{
+  width: 100%;
+}
+.counter-val {
+    top: -15px;
+    left: 30px;
+    background-color: #666;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 50%;
+}
+
