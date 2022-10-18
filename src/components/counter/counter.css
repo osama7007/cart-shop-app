@@ -1,0 +1,8 @@
+.counter{
+    box-shadow: 0 0 2px 3px #ddd;
+    width: 400px;
+    margin: 50px auto;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}

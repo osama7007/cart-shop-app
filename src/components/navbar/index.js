@@ -18,6 +18,9 @@ function Navbar({count}) {
 					<li>
 						<Link to='/Login'>Login</Link>
 					</li>
+					<li>
+						<Link to='/Counter'>Counter</Link>
+					</li>
 				</ul>
 			</nav>
 

@@ -16,12 +16,11 @@ li a:hover::after{
 }
 .counter-val {
     top: -15px;
-    left: 30px;
-    background-color: #666;
+    left: 15px;
+    background-color: red;
     color: #fff;
     font-size: 15px;
     font-weight: bold;
-    padding: 5px;
-    border-radius: 50%;
+    border-radius: 20%;
 }
 

@@ -7,36 +7,20 @@ import Cart from './components/cart';
 import ProductDetails from './components/product-details';
 import Login from './components/login';
 import Navbar from './components/navbar';
-
+import Counter from './components/counter';
 function App() {
-    let [count, setCount] = useState(0);
 
-  const increment = () => {
-		setCount( count + 1);
-	};
 
-	const decrement = () => {
-		setCount( count - 1);
-	};
-
-  function reset() {
-		setCount( count = 0);
-	}
 	return (
 		<>
 			<BrowserRouter>
-				<Navbar count={count} />
+				<Navbar />
 				<Routes>
-					<Route
-						path='/products'
-						element={<Products increment={increment} />}
-					/>
-					<Route
-						path='/Cart'
-						element={<Cart increment={increment} decrement={decrement} reset ={reset} count= {count}/>}
-					/>
+					<Route path='/products' element={<Products />} />
+					<Route path='/Cart' element={<Cart />} />
 					<Route path='/Login' element={<Login />} />
 					<Route path='/products/:id' element={<ProductDetails />} />
+					<Route path='/Counter' element={<Counter />} />
 				</Routes>
 			</BrowserRouter>
 		</>
