@@ -4,7 +4,7 @@ import {reset , decrement , increment} from "../redux/counterSlice";
 import './counter.css'
 function Counter() {
 
-    const globalCount = useSelector((state) =>state.counter.counter);
+    const globalCount = useSelector((state) =>state.counterStore.counter);
 	const dispatch = useDispatch();
 
 

@@ -2,10 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
 import './products.css';
-function Products({increment}) {
+function Products() {
 	const [products, setProducts] = useState([]);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		getProducts();
@@ -20,7 +22,11 @@ function Products({increment}) {
 		return <span class='loader'></span>;
 	}
 
-	return (
+let addedToCart =()=>{
+	//document.querySelector('.addToCart').classList = 'addedToCart'; // need to fix
+}
+
+return (
 		<>
 			<div className='products-list d-flex justify-content-center flex-wrap container-fluid'>
 				{products.map((product) => {
@@ -36,7 +42,12 @@ function Products({increment}) {
 							<Link to={`/products/${product.id}`}>
 								<button className='btn btn-primary'>Product Details</button>
 							</Link>
-							<button className='btn btn-warning ms-2' onClick={increment}>
+							<button
+								className='btn btn-warning ms-2 addToCart'
+								onClick={() => {
+									addedToCart();
+									dispatch(addToCart(product));
+								}}>
 								Add To Cart
 							</button>
 						</div>
