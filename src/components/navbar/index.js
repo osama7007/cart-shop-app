@@ -1,7 +1,13 @@
 import React from 'react'
 import { Outlet, Link } from "react-router-dom";
 import './navbar.css';
-function Navbar({count}) {
+import { useSelector } from 'react-redux';
+import { FaCartPlus } from 'react-icons/fa';
+
+
+function Navbar() {
+	  const ProductCount = useSelector((state) => state.cartStore.cartCount);
+
   return (
 		<>
 			<nav className='nav-bar  bg-warning p-1'>
@@ -17,7 +23,10 @@ function Navbar({count}) {
 						</li>
 						<li className='position-relative'>
 							<Link to='/Cart'>Cart</Link>
-							<div className='position-absolute counter-val '>{count}</div>
+							<div className='position-absolute counter-val '>
+								<span>{ProductCount}</span>
+								<FaCartPlus size='1rem' />
+							</div>
 						</li>
 						<li>
 							<Link to='/Login'>Login</Link>
