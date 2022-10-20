@@ -22,11 +22,11 @@ function Products() {
 		return <span class='loader'></span>;
 	}
 
-let addedToCart =()=>{
-	//document.querySelector('.addToCart').classList = 'addedToCart'; // need to fix
-}
-
-return (
+	
+	let addedToCart =()=>{
+		//document.querySelector('.addToCart').disabled = true; // need to fix
+	}
+	return (
 		<>
 			<div className='products-list d-flex justify-content-center flex-wrap container-fluid'>
 				{products.map((product) => {

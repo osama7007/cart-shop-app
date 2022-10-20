@@ -3,10 +3,15 @@ import { Outlet, Link } from "react-router-dom";
 import './navbar.css';
 import { useSelector } from 'react-redux';
 import { FaCartPlus } from 'react-icons/fa';
-
-
+import { useDispatch } from 'react-redux';
+import { LoggedOut } from '../redux/auth';
 function Navbar() {
 	  const ProductCount = useSelector((state) => state.cartStore.cartCount);
+		const isAuth = useSelector(state=>state.authStore.isAuth);
+		const dispatch = useDispatch()
+		let logOut = ()=>{
+			dispatch(LoggedOut());
+		}
 
   return (
 		<>
@@ -28,12 +33,26 @@ function Navbar() {
 								<FaCartPlus size='1rem' />
 							</div>
 						</li>
-						<li>
-							<Link to='/Login'>Login</Link>
-						</li>
+						{!isAuth && (
+							<li>
+								<Link to='/Login'>Login</Link>
+							</li>
+						)}
+						{!isAuth && (
+							<li>
+								<Link to='/Signup'>Signup</Link>
+							</li>
+						)}
 						<li>
 							<Link to='/Counter'>Counter</Link>
 						</li>
+						{isAuth && (
+							<li>
+								<button className='btn btn-danger' onClick={() => logOut()}>
+									Logout
+								</button>
+							</li>
+						)}
 					</div>
 				</ul>
 			</nav>
